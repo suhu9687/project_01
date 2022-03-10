@@ -1,0 +1,951 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>ndarray运算 | 机器学习（常用科学计算库的使用）基础定位、目标</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-splitter/splitter.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../Numpy/section5.html" />
+    
+    
+    <link rel="prev" href="../Numpy/section3.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="4.4"
+        data-chapter-title="ndarray运算"
+        data-filepath="Numpy/section4.md"
+        data-basepath=".."
+        data-revision="Sat Jul 20 2019 23:53:14 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        机器学习（常用科学计算库的使用）基础定位、目标
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="ml_pre/index.html">
+            
+                
+                    <a href="../ml_pre/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        机器学习概述
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="ml_pre/section1.html">
+            
+                
+                    <a href="../ml_pre/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        人工智能概述
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="ml_pre/section2.html">
+            
+                
+                    <a href="../ml_pre/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        人工智能发展历程
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="ml_pre/section3.html">
+            
+                
+                    <a href="../ml_pre/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        人工智能主要分支
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="ml_pre/section4.html">
+            
+                
+                    <a href="../ml_pre/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        机器学习工作流程
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="ml_pre/section5.html">
+            
+                
+                    <a href="../ml_pre/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                        机器学习算法分类
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="ml_pre/section6.html">
+            
+                
+                    <a href="../ml_pre/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                        模型评估
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="ml_pre/section7.html">
+            
+                
+                    <a href="../ml_pre/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.7.</b>
+                        
+                        Azure机器学习模型搭建实验
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="ml_pre/section8.html">
+            
+                
+                    <a href="../ml_pre/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.8.</b>
+                        
+                        深度学习简介
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="env/index.html">
+            
+                
+                    <a href="../env/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        机器学习基础环境安装与使用
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="env/section1.html">
+            
+                
+                    <a href="../env/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        库的安装
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="env/section2.html">
+            
+                
+                    <a href="../env/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        jupyter notebook使用
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="Matplotlib/index.html">
+            
+                
+                    <a href="../Matplotlib/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Matplotlib
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="Matplotlib/section1.html">
+            
+                
+                    <a href="../Matplotlib/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        Matplotlib之HelloWorld
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="Matplotlib/section2.html">
+            
+                
+                    <a href="../Matplotlib/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        基础绘图功能 — 以折线图为例
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="Matplotlib/section3.html">
+            
+                
+                    <a href="../Matplotlib/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        常见图形绘制
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="Numpy/index.html">
+            
+                
+                    <a href="../Numpy/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Numpy
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="Numpy/section1.html">
+            
+                
+                    <a href="../Numpy/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Numpy的优势
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="Numpy/section2.html">
+            
+                
+                    <a href="../Numpy/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        N维数组-ndarray
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="Numpy/section3.html">
+            
+                
+                    <a href="../Numpy/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        基本操作
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.4" data-path="Numpy/section4.html">
+            
+                
+                    <a href="../Numpy/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        ndarray运算
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="Numpy/section5.html">
+            
+                
+                    <a href="../Numpy/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        数组间的运算
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="Numpy/section6.html">
+            
+                
+                    <a href="../Numpy/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        数学：矩阵
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="Pandas/index.html">
+            
+                
+                    <a href="../Pandas/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        Pandas
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="Pandas/section1.html">
+            
+                
+                    <a href="../Pandas/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Pandas介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="Pandas/section2.html">
+            
+                
+                    <a href="../Pandas/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        Pandas数据结构
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="Pandas/section3.html">
+            
+                
+                    <a href="../Pandas/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        基本数据操作
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="Pandas/section4.html">
+            
+                
+                    <a href="../Pandas/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        DataFrame运算
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="Pandas/section5.html">
+            
+                
+                    <a href="../Pandas/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        Pandas画图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="Pandas/section6.html">
+            
+                
+                    <a href="../Pandas/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        文件读取与存储
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="Pandas/section7.html">
+            
+                
+                    <a href="../Pandas/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                        高级处理-缺失值处理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="Pandas/section8.html">
+            
+                
+                    <a href="../Pandas/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.8.</b>
+                        
+                        高级处理-数据离散化
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.9" data-path="Pandas/section9.html">
+            
+                
+                    <a href="../Pandas/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.9.</b>
+                        
+                        高级处理-合并
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.10" data-path="Pandas/section10.html">
+            
+                
+                    <a href="../Pandas/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.10.</b>
+                        
+                        高级处理-交叉表与透视表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.11" data-path="Pandas/section11.html">
+            
+                
+                    <a href="../Pandas/section11.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.11.</b>
+                        
+                        高级处理-分组与聚合
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.12" data-path="Pandas/section12.html">
+            
+                
+                    <a href="../Pandas/section12.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.12.</b>
+                        
+                        案例
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="ReadingExtension/index.html">
+            
+                
+                    <a href="../ReadingExtension/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        拓展知识
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="ReadingExtension/1.完整机器学习项目的流程.html">
+            
+                
+                    <a href="../ReadingExtension/1.完整机器学习项目的流程.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        完整机器学习项目的流程
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="ReadingExtension/2.独立同分布.html">
+            
+                
+                    <a href="../ReadingExtension/2.独立同分布.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        独立同分布
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >机器学习（常用科学计算库的使用）基础定位、目标</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="44-ndarray&#x8FD0;&#x7B97;">4.4 ndarray&#x8FD0;&#x7B97;</h1>
+<h2 id="&#x5B66;&#x4E60;&#x76EE;&#x6807;">&#x5B66;&#x4E60;&#x76EE;&#x6807;</h2>
+<ul>
+<li>&#x76EE;&#x6807;<ul>
+<li>&#x5E94;&#x7528;&#x6570;&#x7EC4;&#x7684;&#x901A;&#x7528;&#x5224;&#x65AD;&#x51FD;&#x6570;</li>
+<li>&#x5E94;&#x7528;np.where&#x5B9E;&#x73B0;&#x6570;&#x7EC4;&#x7684;&#x4E09;&#x5143;&#x8FD0;&#x7B97;</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="&#x95EE;&#x9898;">&#x95EE;&#x9898;</h2>
+<p><strong>&#x5982;&#x679C;&#x60F3;&#x8981;&#x64CD;&#x4F5C;&#x7B26;&#x5408;&#x67D0;&#x4E00;&#x6761;&#x4EF6;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5E94;&#x8BE5;&#x600E;&#x4E48;&#x505A;&#xFF1F;</strong></p>
+<h2 id="1-&#x903B;&#x8F91;&#x8FD0;&#x7B97;">1 &#x903B;&#x8F91;&#x8FD0;&#x7B97;</h2>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x751F;&#x6210;10&#x540D;&#x540C;&#x5B66;&#xFF0C;5&#x95E8;&#x529F;&#x8BFE;&#x7684;&#x6570;&#x636E;</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>score = np.random.randint(<span class="hljs-number">40</span>, <span class="hljs-number">100</span>, (<span class="hljs-number">10</span>, <span class="hljs-number">5</span>))
+
+<span class="hljs-comment"># &#x53D6;&#x51FA;&#x6700;&#x540E;4&#x540D;&#x540C;&#x5B66;&#x7684;&#x6210;&#x7EE9;&#xFF0C;&#x7528;&#x4E8E;&#x903B;&#x8F91;&#x5224;&#x65AD;</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>test_score = score[<span class="hljs-number">6</span>:, <span class="hljs-number">0</span>:<span class="hljs-number">5</span>]
+
+<span class="hljs-comment"># &#x903B;&#x8F91;&#x5224;&#x65AD;, &#x5982;&#x679C;&#x6210;&#x7EE9;&#x5927;&#x4E8E;60&#x5C31;&#x6807;&#x8BB0;&#x4E3A;True &#x5426;&#x5219;&#x4E3A;False</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>test_score &gt; <span class="hljs-number">60</span>
+array([[ <span class="hljs-keyword">True</span>,  <span class="hljs-keyword">True</span>,  <span class="hljs-keyword">True</span>, <span class="hljs-keyword">False</span>,  <span class="hljs-keyword">True</span>],
+       [ <span class="hljs-keyword">True</span>,  <span class="hljs-keyword">True</span>,  <span class="hljs-keyword">True</span>, <span class="hljs-keyword">False</span>,  <span class="hljs-keyword">True</span>],
+       [ <span class="hljs-keyword">True</span>,  <span class="hljs-keyword">True</span>, <span class="hljs-keyword">False</span>, <span class="hljs-keyword">False</span>,  <span class="hljs-keyword">True</span>],
+       [<span class="hljs-keyword">False</span>,  <span class="hljs-keyword">True</span>,  <span class="hljs-keyword">True</span>,  <span class="hljs-keyword">True</span>,  <span class="hljs-keyword">True</span>]])
+
+<span class="hljs-comment"># BOOL&#x8D4B;&#x503C;, &#x5C06;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#x7684;&#x8BBE;&#x7F6E;&#x4E3A;&#x6307;&#x5B9A;&#x7684;&#x503C;-&#x5E03;&#x5C14;&#x7D22;&#x5F15;</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>test_score[test_score &gt; <span class="hljs-number">60</span>] = <span class="hljs-number">1</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>test_score
+array([[ <span class="hljs-number">1</span>,  <span class="hljs-number">1</span>,  <span class="hljs-number">1</span>, <span class="hljs-number">52</span>,  <span class="hljs-number">1</span>],
+       [ <span class="hljs-number">1</span>,  <span class="hljs-number">1</span>,  <span class="hljs-number">1</span>, <span class="hljs-number">59</span>,  <span class="hljs-number">1</span>],
+       [ <span class="hljs-number">1</span>,  <span class="hljs-number">1</span>, <span class="hljs-number">44</span>, <span class="hljs-number">44</span>,  <span class="hljs-number">1</span>],
+       [<span class="hljs-number">59</span>,  <span class="hljs-number">1</span>,  <span class="hljs-number">1</span>,  <span class="hljs-number">1</span>,  <span class="hljs-number">1</span>]])
+</code></pre>
+<h2 id="2-&#x901A;&#x7528;&#x5224;&#x65AD;&#x51FD;&#x6570;">2 &#x901A;&#x7528;&#x5224;&#x65AD;&#x51FD;&#x6570;</h2>
+<ul>
+<li>np.all()</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x5224;&#x65AD;&#x524D;&#x4E24;&#x540D;&#x540C;&#x5B66;&#x7684;&#x6210;&#x7EE9;[0:2, :]&#x662F;&#x5426;&#x5168;&#x53CA;&#x683C;</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>np.all(score[<span class="hljs-number">0</span>:<span class="hljs-number">2</span>, :] &gt; <span class="hljs-number">60</span>)
+<span class="hljs-keyword">False</span>
+</code></pre>
+<ul>
+<li>np.any()</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x5224;&#x65AD;&#x524D;&#x4E24;&#x540D;&#x540C;&#x5B66;&#x7684;&#x6210;&#x7EE9;[0:2, :]&#x662F;&#x5426;&#x6709;&#x5927;&#x4E8E;90&#x5206;&#x7684;</span>
+<span class="hljs-prompt">&gt;&gt;&gt; </span>np.any(score[<span class="hljs-number">0</span>:<span class="hljs-number">2</span>, :] &gt; <span class="hljs-number">80</span>)
+<span class="hljs-keyword">True</span>
+</code></pre>
+<h2 id="3-npwhere&#xFF08;&#x4E09;&#x5143;&#x8FD0;&#x7B97;&#x7B26;&#xFF09;">3 np.where&#xFF08;&#x4E09;&#x5143;&#x8FD0;&#x7B97;&#x7B26;&#xFF09;</h2>
+<p>&#x901A;&#x8FC7;&#x4F7F;&#x7528;np.where&#x80FD;&#x591F;&#x8FDB;&#x884C;&#x66F4;&#x52A0;&#x590D;&#x6742;&#x7684;&#x8FD0;&#x7B97;</p>
+<ul>
+<li>np.where()</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x5224;&#x65AD;&#x524D;&#x56DB;&#x540D;&#x5B66;&#x751F;,&#x524D;&#x56DB;&#x95E8;&#x8BFE;&#x7A0B;&#x4E2D;&#xFF0C;&#x6210;&#x7EE9;&#x4E2D;&#x5927;&#x4E8E;60&#x7684;&#x7F6E;&#x4E3A;1&#xFF0C;&#x5426;&#x5219;&#x4E3A;0</span>
+temp = score[:<span class="hljs-number">4</span>, :<span class="hljs-number">4</span>]
+np.where(temp &gt; <span class="hljs-number">60</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>)
+</code></pre>
+<ul>
+<li>&#x590D;&#x5408;&#x903B;&#x8F91;&#x9700;&#x8981;&#x7ED3;&#x5408;np.logical_and&#x548C;np.logical_or&#x4F7F;&#x7528;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x5224;&#x65AD;&#x524D;&#x56DB;&#x540D;&#x5B66;&#x751F;,&#x524D;&#x56DB;&#x95E8;&#x8BFE;&#x7A0B;&#x4E2D;&#xFF0C;&#x6210;&#x7EE9;&#x4E2D;&#x5927;&#x4E8E;60&#x4E14;&#x5C0F;&#x4E8E;90&#x7684;&#x6362;&#x4E3A;1&#xFF0C;&#x5426;&#x5219;&#x4E3A;0</span>
+np.where(np.logical_and(temp &gt; <span class="hljs-number">60</span>, temp &lt; <span class="hljs-number">90</span>), <span class="hljs-number">1</span>, <span class="hljs-number">0</span>)
+
+<span class="hljs-comment"># &#x5224;&#x65AD;&#x524D;&#x56DB;&#x540D;&#x5B66;&#x751F;,&#x524D;&#x56DB;&#x95E8;&#x8BFE;&#x7A0B;&#x4E2D;&#xFF0C;&#x6210;&#x7EE9;&#x4E2D;&#x5927;&#x4E8E;90&#x6216;&#x5C0F;&#x4E8E;60&#x7684;&#x6362;&#x4E3A;1&#xFF0C;&#x5426;&#x5219;&#x4E3A;0</span>
+np.where(np.logical_or(temp &gt; <span class="hljs-number">90</span>, temp &lt; <span class="hljs-number">60</span>), <span class="hljs-number">1</span>, <span class="hljs-number">0</span>)
+</code></pre>
+<h2 id="4--&#x7EDF;&#x8BA1;&#x8FD0;&#x7B97;">4  &#x7EDF;&#x8BA1;&#x8FD0;&#x7B97;</h2>
+<p><strong>&#x5982;&#x679C;&#x60F3;&#x8981;&#x77E5;&#x9053;&#x5B66;&#x751F;&#x6210;&#x7EE9;&#x6700;&#x5927;&#x7684;&#x5206;&#x6570;&#xFF0C;&#x6216;&#x8005;&#x505A;&#x5C0F;&#x5206;&#x6570;&#x5E94;&#x8BE5;&#x600E;&#x4E48;&#x505A;&#xFF1F;</strong></p>
+<h3 id="41-&#x7EDF;&#x8BA1;&#x6307;&#x6807;">4.1 &#x7EDF;&#x8BA1;&#x6307;&#x6807;</h3>
+<p>&#x5728;&#x6570;&#x636E;&#x6316;&#x6398;/&#x673A;&#x5668;&#x5B66;&#x4E60;&#x9886;&#x57DF;&#xFF0C;&#x7EDF;&#x8BA1;&#x6307;&#x6807;&#x7684;&#x503C;&#x4E5F;&#x662F;&#x6211;&#x4EEC;&#x5206;&#x6790;&#x95EE;&#x9898;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x3002;&#x5E38;&#x7528;&#x7684;&#x6307;&#x6807;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>min(a, axis)<ul>
+<li>Return the minimum of an array or minimum along an axis.</li>
+</ul>
+</li>
+<li>max(a, axis])<ul>
+<li>Return the maximum of an array or maximum along an axis.</li>
+</ul>
+</li>
+<li>median(a, axis)<ul>
+<li>Compute the median along the specified axis.</li>
+</ul>
+</li>
+<li>mean(a, axis, dtype)<ul>
+<li>Compute the arithmetic mean along the specified axis.</li>
+</ul>
+</li>
+<li>std(a, axis, dtype)    <ul>
+<li>Compute the standard deviation along the specified axis.</li>
+</ul>
+</li>
+<li>var(a, axis, dtype)    <ul>
+<li>Compute the variance along the specified axis.</li>
+</ul>
+</li>
+</ul>
+<h3 id="42--&#x6848;&#x4F8B;&#xFF1A;&#x5B66;&#x751F;&#x6210;&#x7EE9;&#x7EDF;&#x8BA1;&#x8FD0;&#x7B97;">4.2  &#x6848;&#x4F8B;&#xFF1A;&#x5B66;&#x751F;&#x6210;&#x7EE9;&#x7EDF;&#x8BA1;&#x8FD0;&#x7B97;</h3>
+<p>&#x8FDB;&#x884C;&#x7EDF;&#x8BA1;&#x7684;&#x65F6;&#x5019;&#xFF0C;<strong>axis &#x8F74;&#x7684;&#x53D6;&#x503C;&#x5E76;&#x4E0D;&#x4E00;&#x5B9A;&#xFF0C;Numpy&#x4E2D;&#x4E0D;&#x540C;&#x7684;API&#x8F74;&#x7684;&#x503C;&#x90FD;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;axis 0&#x4EE3;&#x8868;&#x5217;,  axis 1&#x4EE3;&#x8868;&#x884C;&#x53BB;&#x8FDB;&#x884C;&#x7EDF;&#x8BA1;</strong></p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x63A5;&#x4E0B;&#x6765;&#x5BF9;&#x4E8E;&#x524D;&#x56DB;&#x540D;&#x5B66;&#x751F;,&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x7EDF;&#x8BA1;&#x8FD0;&#x7B97;</span>
+<span class="hljs-comment"># &#x6307;&#x5B9A;&#x5217; &#x53BB;&#x7EDF;&#x8BA1;</span>
+temp = score[:<span class="hljs-number">4</span>, <span class="hljs-number">0</span>:<span class="hljs-number">5</span>]
+print(<span class="hljs-string">&quot;&#x524D;&#x56DB;&#x540D;&#x5B66;&#x751F;,&#x5404;&#x79D1;&#x6210;&#x7EE9;&#x7684;&#x6700;&#x5927;&#x5206;&#xFF1A;{}&quot;</span>.format(np.max(temp, axis=<span class="hljs-number">0</span>)))
+print(<span class="hljs-string">&quot;&#x524D;&#x56DB;&#x540D;&#x5B66;&#x751F;,&#x5404;&#x79D1;&#x6210;&#x7EE9;&#x7684;&#x6700;&#x5C0F;&#x5206;&#xFF1A;{}&quot;</span>.format(np.min(temp, axis=<span class="hljs-number">0</span>)))
+print(<span class="hljs-string">&quot;&#x524D;&#x56DB;&#x540D;&#x5B66;&#x751F;,&#x5404;&#x79D1;&#x6210;&#x7EE9;&#x6CE2;&#x52A8;&#x60C5;&#x51B5;&#xFF1A;{}&quot;</span>.format(np.std(temp, axis=<span class="hljs-number">0</span>)))
+print(<span class="hljs-string">&quot;&#x524D;&#x56DB;&#x540D;&#x5B66;&#x751F;,&#x5404;&#x79D1;&#x6210;&#x7EE9;&#x7684;&#x5E73;&#x5747;&#x5206;&#xFF1A;{}&quot;</span>.format(np.mean(temp, axis=<span class="hljs-number">0</span>)))
+</code></pre>
+<p>&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code>&#x524D;&#x56DB;&#x540D;&#x5B66;&#x751F;,&#x5404;&#x79D1;&#x6210;&#x7EE9;&#x7684;&#x6700;&#x5927;&#x5206;&#xFF1A;[96 97 72 98 89]
+&#x524D;&#x56DB;&#x540D;&#x5B66;&#x751F;,&#x5404;&#x79D1;&#x6210;&#x7EE9;&#x7684;&#x6700;&#x5C0F;&#x5206;&#xFF1A;[55 57 45 76 77]
+&#x524D;&#x56DB;&#x540D;&#x5B66;&#x751F;,&#x5404;&#x79D1;&#x6210;&#x7EE9;&#x6CE2;&#x52A8;&#x60C5;&#x51B5;&#xFF1A;[16.25576821 14.92271758 10.40432602  8.0311892   4.32290412]
+&#x524D;&#x56DB;&#x540D;&#x5B66;&#x751F;,&#x5404;&#x79D1;&#x6210;&#x7EE9;&#x7684;&#x5E73;&#x5747;&#x5206;&#xFF1A;[78.5  75.75 62.5  85.   82.25]
+</code></pre><p>&#x5982;&#x679C;&#x9700;&#x8981;&#x7EDF;&#x8BA1;&#x51FA;&#x67D0;&#x79D1;&#x6700;&#x9AD8;&#x5206;&#x5BF9;&#x5E94;&#x7684;&#x662F;&#x54EA;&#x4E2A;&#x540C;&#x5B66;&#xFF1F;</p>
+<ul>
+<li>np.argmax(temp, axis=)</li>
+<li>np.argmin(temp, axis=)</li>
+</ul>
+<pre><code class="lang-python">print(<span class="hljs-string">&quot;&#x524D;&#x56DB;&#x540D;&#x5B66;&#x751F;&#xFF0C;&#x5404;&#x79D1;&#x6210;&#x7EE9;&#x6700;&#x9AD8;&#x5206;&#x5BF9;&#x5E94;&#x7684;&#x5B66;&#x751F;&#x4E0B;&#x6807;&#xFF1A;{}&quot;</span>.format(np.argmax(temp, axis=<span class="hljs-number">0</span>)))
+</code></pre>
+<p>&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code>&#x524D;&#x56DB;&#x540D;&#x5B66;&#x751F;&#xFF0C;&#x5404;&#x79D1;&#x6210;&#x7EE9;&#x6700;&#x9AD8;&#x5206;&#x5BF9;&#x5E94;&#x7684;&#x5B66;&#x751F;&#x4E0B;&#x6807;&#xFF1A;[0 2 0 0 1]
+</code></pre><h2 id="5-&#x5C0F;&#x7ED3;">5 &#x5C0F;&#x7ED3;</h2>
+<ul>
+<li>&#x903B;&#x8F91;&#x8FD0;&#x7B97;&#x3010;&#x77E5;&#x9053;&#x3011;<ul>
+<li>&#x76F4;&#x63A5;&#x8FDB;&#x884C;&#x5927;&#x4E8E;,&#x5C0F;&#x4E8E;&#x7684;&#x5224;&#x65AD;</li>
+<li>&#x5408;&#x9002;&#x4E4B;&#x540E;,&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FDB;&#x884C;&#x8D4B;&#x503C;</li>
+</ul>
+</li>
+<li>&#x901A;&#x7528;&#x5224;&#x65AD;&#x51FD;&#x6570;&#x3010;&#x77E5;&#x9053;&#x3011;<ul>
+<li>np.all()</li>
+<li>np.any()</li>
+</ul>
+</li>
+<li>&#x7EDF;&#x8BA1;&#x8FD0;&#x7B97;&#x3010;&#x638C;&#x63E1;&#x3011;<ul>
+<li>np.max()</li>
+<li>np.min()</li>
+<li>np.median()</li>
+<li>np.mean()</li>
+<li>np.std()</li>
+<li>np.var()</li>
+<li>np.argmax(axis=)  &#x2014; &#x6700;&#x5927;&#x5143;&#x7D20;&#x5BF9;&#x5E94;&#x7684;&#x4E0B;&#x6807;</li>
+<li>np.argmin(axis=)  &#x2014; &#x6700;&#x5C0F;&#x5143;&#x7D20;&#x5BF9;&#x5E94;&#x7684;&#x4E0B;&#x6807;</li>
+</ul>
+</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../Numpy/section3.html" class="navigation navigation-prev " aria-label="Previous page: 基本操作"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../Numpy/section5.html" class="navigation navigation-next " aria-label="Next page: 数组间的运算"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-splitter/splitter.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"katex":{},"expandable-chapters":{},"splitter":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
